@@ -1,0 +1,28 @@
+.displayArt{
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+.link{
+    list-style:none;
+    display: inline-block;
+}
+
+.homePage{
+    background-image: url('./assets/images/ancient-art-sunny.jpg');
+    background-size: cover;
+}
+
+.modernArtPage {
+    background-image: url('./assets/images/architecture-2287327_1920.jpg');
+    background-size: cover;
+}
+.aboutPage {
+    background-image: url('./assets/images/woman-colorFace.png');
+    background-size: cover;
+}
+.contactPage {
+    background-image: url('./assets/images/lagoon-2105231_1920.jpg');
+    background-size: cover;
+}

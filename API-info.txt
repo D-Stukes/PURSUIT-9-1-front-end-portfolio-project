@@ -1,0 +1,40 @@
+// harvard art museums API url and api key
+// https://api.harvardartmuseums.org/RESOURCE_TYPE?apikey=YOUR_API_KEY
+// 1724f8f4-7499-4d98-a3ed-f4a06ae32a2c
+
+//smithsonian api https://api.si.edu/openaccess/api/v1.0/category/:cat/search
+// //api key Uhke5gZmhVEwYYUeVBTar8LGhkMe0Kzk3JdGKzCl
+
+
+// /*  
+//     Search English Wikipedia for up to 20 pages containing information about Jupiter
+// */
+
+/*  
+    Get HTML and metadata for the Jupiter article on English Wikipedia
+*/
+
+// async function doFetch() {
+//     const rsp = await fetch(
+//         "https://en.wikipedia.org/w/rest.php/v1/page/Jupiter/links/media",
+//         {'Api-User-Agent': 'MediaWiki REST API docs examples/0.1 (https://www.mediawiki.org/wiki/API_talk:REST_API)'}
+//       );
+//     const data = await rsp.json();
+//     return data;
+//   }
+  
+//   async function fetchAsync()
+//   {
+//     try {
+//       let result = await doFetch();
+//       console.log(result);
+//     } catch( err ) {
+//       console.error( err.message );
+//     }
+//   }
+  
+//   fetchAsync();
+
+//    news.org api key: 1bf7556cdef2480e9811e428630ff9dd
+
+https://collectionapi.metmuseum.org/public/collection/v1/objects/101.
