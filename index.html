@@ -9,35 +9,52 @@
     <title>Front End Portfolio Project</title>
 </head>
 <body class ='homePage'>
-    <aside>  
-        <ul>
-            <li class= "link"></li><a href="modern-art.html">Modern Art</a></li>
-            <li class= "link"><a href="about.html">About</a></li>
-            <li class= "link"></li><a href="contact.html">Contact</a>   </li>
-        </ul>   
-    </aside>
 
+    <div class="container1">
+        <aside class="homeNav">  
+            <ul class="homeUl">
+                <li class= "link"></li><a href="modern-art.html">Modern Art</a></li> <br>
+                <li class= "link"><a href="about.html">About</a></li><br>
+                <li class= "link"></li><a href="contact.html">Contact</a>   </li>
+            </ul>   
+        </aside>
 
-    <h1>Beautiful Ancient Art</h1>
-    <h2>Diane Stukes</h2>
+        <main class ="homeMain">
+            <header>
+                <h1>Beautiful Ancient Art</h1>
+                <!-- <h2>Diane Stukes</h2> -->
+             </header>
+            <form class="formSelectArt">
+                <label  for="search">Enter an Art ID Number</label>
+                <input type="text" id="search" name="search" required/>
+                <button class ='open_artModal'>   <input type ="submit" value="View Art"/>     </button> 
+            </form> 
 
+            <!-- display art, click image and show full info -->
+           
+                <div class="displayArt"> 
+                    <img class ='this_Art' src="" alt=""  >
+                    <!-- <div class="displayMore"></div> -->
+                    <a class='artLink'  href="https://www.metmuseum.org/art/collection/search/101" target="_blank"></a> 
+                </div>
+          
+            <!-- testing a modal as an alternative -->
+            <!-- <button class ='open_artModal'></button> -->
+            <div class="artModal_overlay hidden">
+                <article class="artModal_info hidden">
+                     <button class="close_artModal">&#10005;</button>
+                      <h2 class="modal-content-title">Full Art Info</h2>
+                </article>
+            </div>
+        </main>
+    </div>
 
-
-
-    <main>
-
-        <form class="formSelectArt">
-
-            <label  for="search">Enter an Art ID Number</label>
-            <input type="text" id="search" name="search" required/>
-            <input type ="submit" value="View Art"/>  
-            
-        </form> 
 
     
-
-        <!-- <div class="displayArt"> </div> -->
-
-    </main>
+    <!-- Attempt to create hyperlink on image that will appear in same window -->
+  <!-- <div class="displayMore"> 
+      <a class='artLink'  href="" target="top"> <img class='artImage' src="" alt=""  >  </a>  -->
+  <!-- </div>     -->
+ 
 </body>
 </html>

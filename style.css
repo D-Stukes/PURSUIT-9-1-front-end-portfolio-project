@@ -1,7 +1,70 @@
+/* 
+* {
+
+    box-sizing: border-box;
+} */
+
+/* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-height:  ;
+    margin:0; 
+} */
+
+/* 
+.modal-box{
+    /* display: none; */
+    /* position: fixed;
+    top: 20vh;
+    left: 40vw;
+    width: 50vw;
+    height: 50vh;
+}  */
+
+
+button {
+    background-color: bisque;
+    color: chocolate;
+    border-radius: 5px;
+    border-radius: 0 2px 4px rgba(0, 0, 0, .2);
+    padding: 10px 25px;
+}
+
+.viewMoreDiv{
+    top: 10vh;
+    left:200px;
+    width: 30vw;
+    height:30wh;
+    background-color:rgba(124,0,0,.2)
+}
+
+/* grid container for homepage */
+.container1{
+    /* height: 500vh;
+    width: 500vw; */
+    /* display: grid;
+    grid-template-columns: .25fr 1fr 1fr;
+    grid-template-rows: 1fr 9fr; */
+    
+    position: relative;
+    display: grid;
+    height: 100vh;
+    width: 99.35vw;
+ 
+    /* grid-template-columns: 1fr .5fr .5fr .5fr 1fr ; */
+    grid-template-columns: repeat(8,1fr) ;
+    grid-template-rows: .4fr 1fr ;
+    grid-row-gap: 1vh;
+}  
+
+
 .displayArt{
     width: 500px;
     height: 500px;
-    border: 2px solid black;
+    
+    
+
 }
 
 .link{
@@ -9,10 +72,44 @@
     display: inline-block;
 }
 
+.homeNav {
+    grid-column: 1;
+    grid-row: 1/4;
+    background-color: rgba(255, 157, 80, .5);
+    height: 100%;
+    margin-top: -11;
+    margin-left: -11;
+    background-image: url('./assets/images/totem_pole3.png');
+    opacity: .5;
+}
+
+.homeUl{
+    height: 80%;
+    margin-top: -1;
+    margin-left: -3; 
+    background-color: rgba(255, 157, 80, .5);
+   ;
+}
+
+.link{
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 1;
+}
 .homePage{
     background-image: url('./assets/images/ancient-art-sunny.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+.homeMain{
+    display: inline-block;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
+
 
 .modernArtPage {
     background-image: url('./assets/images/architecture-2287327_1920.jpg');
@@ -26,3 +123,30 @@
     background-image: url('./assets/images/lagoon-2105231_1920.jpg');
     background-size: cover;
 }
+
+/* art modal */
+
+  .artModal_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+  }
+
+  .artModal_info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    z-index: 10;
+    padding: 4rem;
+    border-radius: 5px;
+    width: 70%;
+  }
+  .hidden{
+    display:none;
+  }
