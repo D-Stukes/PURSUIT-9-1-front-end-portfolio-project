@@ -27,25 +27,31 @@
             <form class="formSelectArt">
                 <label  for="search">Enter an Art ID Number</label>
                 <input type="text" id="search" name="search" required/>
-                <button class ='open_artModal'>   <input type ="submit" value="View Art"/>     </button> 
+                 <input type ="submit" value="View Art"/>     
             </form> 
+
+            <button class =' showArtInfo open_artModal_btn'> View Full Art Information </button> 
+
 
             <!-- display art, click image and show full info -->
            
                 <div class="displayArt"> 
                     <img class ='this_Art' src="" alt=""  >
-                    <!-- <div class="displayMore"></div> -->
-                    <a class='artLink'  href="https://www.metmuseum.org/art/collection/search/101" target="_blank"></a> 
+                    <div class="displayMore hidden"></div>
+                    <a class='artLink'  href="" target="_blank"></a> 
+
+                    <!-- replaced hard coded href with js code assignment -->
+                    <!-- <a class='artLink'  href="https://www.metmuseum.org/art/collection/search/101" target="_blank"></a>  -->
                 </div>
           
             <!-- testing a modal as an alternative -->
             <!-- <button class ='open_artModal'></button> -->
-            <div class="artModal_overlay hidden">
+            <!-- <div class="artModal_overlay hidden">
                 <article class="artModal_info hidden">
-                     <button class="close_artModal">&#10005;</button>
+                     <button class="close_artModal_btn">&#10005;</button>
                       <h2 class="modal-content-title">Full Art Info</h2>
                 </article>
-            </div>
+            </div> -->
         </main>
     </div>
 

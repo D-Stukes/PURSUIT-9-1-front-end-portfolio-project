@@ -34,52 +34,75 @@ formSelectArt.addEventListener(('submit'), (event) => {
   
         // displayArtDiv.append(iframe)
         // document.body.append(artImage)
+
+
+
         artImage.setAttribute('src', data.primaryImage)
         artImage.setAttribute('height', 530)
         artImage.setAttribute('width', 500)
         artImage.setAttribute('alt', "art piece")
         artImage.style.border = ('2px solid brown')
         displayArt.append(artImage)
+        
+        const showArtInfoButton = document.querySelector('.showArtInfo')
+        const displayMore = document.querySelector('.displayMore')
         // artLink.setAttribute('href', data.objectURL )
         
         // anchor.appendChild(artImage)
-        artImage.addEventListener(('click'), (event) => {
-           event.preventDefault()
-           displayArt.style.display = "none"
-           const displayMore = document.querySelector('.displayMore')
-           displayMore.style.width = 500
-           displayMore.style.height = 530
-           displayMore.appendChild(artLink)
+        // artImage.addEventListener(('click'), (event) => {
+        // event.preventDefault()
+        showArtInfo.addEventListener(('click'), (event) => {
+            event.preventDefault()
+        //hide first image, and make image with full info visible inside of displayMore div with hyperlink to data.objectURL website location
+        displayArt.style.display = "none"
+        displayMore.classList.add('visible')
+        displayMore.style.width = '530'
+        displayMore.style.height = '530'
+        artLink.setAttribute('src', data.objectURL)
+        displayMore.appendChild(artLink)
+       
         })
 
 
-///testing a modal
-const open_artModal_button = document.querySelectorAll('.open_artModal')
-const close_artModal_button = document.querySelector('.close_artModal')
-const artModalOverlay = document.querySelector('.artModal-overlay')
-
-// Attach event listeners
-open_artModal_button.addEventListener('click', open_artModal)
-artModal_overlay.addEventListener('click', close_artModal)
-document.addEventListener('keydown', close_artModal)
-
-// Utility functions to open/close the modal
-function open_artModal() {
-  artModal_overlay.classList.remove('hidden')
-}
-
-function close_artModal(event) {
-  if (
-    event.target.classList.contains('close-modal') ||
-    event.target.id === 'artModal-overlay' ||
-    (event.type === 'keydown' && event.key === 'Escape')
-  ) {
-    artModal_overlay.classList.add('hidden');
-  }
-}
+//testing a modal
+// const open_artModal_button = document.querySelectorAll('.open_artModal_btn')
+// const close_artModal_button = document.querySelector('.close_artModal_btn')
+// const artModalOverlay = document.querySelector('.artModal-overlay')
 
 
+// // Attach event listeners to modal buttons
+// open_artModal_button.addEventListener('click', open_artModal)
+// artModal_overlay.addEventListener('click', close_artModal)
 
+
+// // make modal and overlay visible
+// function open_artModal() {
+//   artModal_overlay.classList.remove('hidden')
+//   artModal_info.classList.remove('hidden')
+// }
+
+// function close_artModal_btn(event) {
+//   if ( event.target.classList.contains('close-Artmodal_btn') ||
+//     event.target.class === 'artModal-overlay' ||
+//     // if the clos_artModel button or overlay is clicked, set set the event.type = to a key pressed or the event.key = ESC is pressed
+//    ) 
+//    (event.type === 'keydown' && event.key === 'Escape')
+//   } 
+//   //hide the overlay
+//     artModal_overlay.classList.add('hidden');
+//   }
+// }
+
+//Notes - Modal - General Concept
+// HTML - 
+// 1. Open Button 
+// 2. Overlay
+// 3. Content
+// 4. Close Button 
+
+// JS -
+// 1. event listener for open button, activate Overlay and content - make display visible
+// 2. event listener for close button, made button, overlay and content hidden
 
         
         // function showArtInfo(){
