@@ -1,7 +1,4 @@
 
-//const url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/438815'
-// const url = 'https://collectionapi.metmuseum.org/public/collection/search?q=african+&showOnly=withImage'
-// const url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste Renoir'
 
 const formSelectArt= document.querySelector(".formSelectArt")
 formSelectArt.addEventListener(('submit'), (event) => {
@@ -17,32 +14,74 @@ formSelectArt.addEventListener(('submit'), (event) => {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
+            console.log(data.objectDate)
+            console.log(data.title)
+            console.log(data.culture)
+            console.log(data.medium)
+            console.log(data.GalleryNumber)
+            
+
            // console.log(data.objectURL)
     
         const selectedArtUrl = data.objectURL    
         const displayArt = document.querySelector('.displayArt')
         const displayMore = document.querySelector('.displayMore')
-        let artImage = document.createElement('img')
+       
+     
         let anchor = document.createElement('a')
+        // const showArtInfoButton = document.querySelector('.showArtInfo')
 
-        displayArt.append(anchor)
-        anchor.append(artImage)
-        anchor.setAttribute('href', data.objectURL )
-        anchor.setAttribute('target','_blank' )
+        //check if an image (identified with id new-art) exists on the page. if so remove it, so art selections will not stack on page
+        if(document.querySelector('#new-art')){document.querySelector('#new-art').remove()}
+
+        //create image element - artImage and give it id = new-art
+        let artImage = document.createElement('img')
+        artImage.setAttribute('id','new-art')
+
+        let infoLine1 = document.querySelector('#infoLine1')
+        let infoLine2 = document.querySelector('#infoLine2')
+        let infoLine3 = document.querySelector('#infoLine3')
+        let infoLine4 = document.querySelector('#infoLine4')
+        let infoLine5 = document.querySelector('#infoLine5')
+
+        infoLine1.textContent = "Title: " + data.title
+        infoLine2.textContent = "Time Period: " +  data.objectDate
+        infoLine3.textContent = "Culture: " + data.culture
+        infoLine4.textContent = "Medium: " + data.medium
+        infoLine5.textContent = "Gallery Number: " + data.GalleryNumber
+   
+       
+        // displayArt.append(anchor)
+        // anchor.append(artImage)
+        // anchor.setAttribute('href', data.objectURL )
+        // anchor.setAttribute('target','_blank' )
+
+
+
+        artImage.setAttribute('src', data.primaryImage)
+        // artImage.setAttribute('height', 530)
+        // artImage.setAttribute('width', 500)
+        artImage.setAttribute('alt', "art piece")
+        artImage.style.border = ('2px solid brown')
+        displayArt.append(artImage)
+        
+   
+
+
         // let artLink = document.querySelector('.artLink')
         
-        const iframe = document.createElement('iframe')
+        // const iframe = document.createElement('iframe')
                              
-        iframe.addEventListener(('click'), event => {
-            iframe.src = data.objectURL
-        //    document.body.append(iframe)
-            // displayMore.append(iframe)
-            displayMore.classList.remove('hidden')
-            iframe.style.width = '500px'
-            iframe.style.height = '500px'
-            displayArt.classList.add('hidden')
+        // iframe.addEventListener(('click'), event => {
+        //     iframe.src = data.objectURL
+        // //    document.body.append(iframe)
+        //     // displayMore.append(iframe)
+        //     displayMore.classList.remove('hidden')
+        //     iframe.style.width = '500px'
+        //     iframe.style.height = '500px'
+        //     displayArt.classList.add('hidden')
 
-    })
+    // })
         
 
         // document.body.append(iframe)
@@ -53,14 +92,6 @@ formSelectArt.addEventListener(('submit'), (event) => {
         // })
 
 
-        artImage.setAttribute('src', data.primaryImage)
-        artImage.setAttribute('height', 530)
-        artImage.setAttribute('width', 500)
-        artImage.setAttribute('alt', "art piece")
-        artImage.style.border = ('2px solid brown')
-        // displayArt.append(artImage)
-        
-        const showArtInfoButton = document.querySelector('.showArtInfo')
       
         // artLink.setAttribute('href', data.objectURL )
         

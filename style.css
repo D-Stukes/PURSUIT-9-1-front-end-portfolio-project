@@ -5,18 +5,14 @@
 font-family: 'Bungee Spice', cursive;
 font-family: 'Roboto', sans-serif; */
 
-.homepgTitle{
-    font-family: Bungee, 'Franklin Gothic Medium',  sans-serif;
-    font-size: 5vw;
-    color
-}
-button {
+
+/* button {
     background-color: bisque;
     color: chocolate;
     border-radius: 5px;
     border-radius: 0 2px 4px rgba(0, 0, 0, .2);
     padding: 10px 25px;
-}
+} */
 
 .viewMoreDiv{
     top: 10vh;
@@ -41,33 +37,57 @@ button {
  
     /* grid-template-columns: 1fr .5fr .5fr .5fr 1fr ; */
     grid-template-columns: repeat(8,1fr) ;
-    grid-template-rows: .4fr 1fr ;
-    grid-row-gap: 1vh;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    
 }  
 
+.homepgTitle{
+    font-family: Bungee, 'Franklin Gothic Medium',  sans-serif;
+    font-size: 5vw;
+    color: brown;
+    grid-column-start: 9;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    width:150vw;
+}
+
+#new-art{
+   height:40vh ;
+   width: 35vw;
+   margin-top: 5vh;
+}
 
 .displayArt{
-    width: 500px;
-    height: 500px;
-    
-    
-
+    height:40vh ;
+    width: 35vw;
+    border: 2px solid rgba(124,0,0,.2);
+    grid-row: 2/4;
+    grid-column: 3/6 ;
 }
 
-.link{
-    list-style:none;
-    display: inline-block;
+ .displayMore{
+    height:40vh ;
+    width: 35vw;
+    border: 2px solid rgba(124,0,0,.2); 
+    background-color: rgba(222, 170, 107, .5);
+    grid-row-start: 2 ;
+    grid-row-end: 4;
+    grid-column-start: 6;
+    grid-column-end: 9;
+    margin-top: 5vh;
 }
+
 
 .homeNav {
     grid-column: 1;
-    grid-row: 1/4;
+    grid-row: 1/9;
     background-color: rgba(255, 157, 80, .5);
     height: 100%;
     margin-top: -11;
     margin-left: -11;
     background-image: url('./assets/images/totem_pole3.png');
-    opacity: .5;
+    opacity: .8;
 }
 
 .homeUl{
@@ -78,11 +98,48 @@ button {
    ;
 }
 
-.link{
-    font-size: 25px;
-    font-weight: bold;
-    opacity: 1;
+ul li a:hover {
+    background-color: black;
+    border-radius: 20% / 50%;
+    color: goldenrod;
+    transform: scale(1.5);
+    transition: all .2s ease-in-out;
+  }
+
+.link1, .link2,.link3 {
+    list-style:none;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(42, 25, 4);
+    /* background-color:  cyan; */
 }
+
+
+
+.link1{
+
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.link2{
+
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.link3{
+
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
 .homePage{
     background-image: url('./assets/images/ancient-art-sunny.jpg');
     background-size: cover;
@@ -113,29 +170,8 @@ button {
 
 /* art modal */
 
-  .artModal_overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
-  }
-
-  .artModal_info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    z-index: 10;
-    padding: 4rem;
-    border-radius: 5px;
-    width: 70%;
-  }
   .hidden{
-    display:none;
+    display: none;
   }
 
   .visible{
