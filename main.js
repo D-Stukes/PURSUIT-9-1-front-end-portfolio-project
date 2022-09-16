@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 const formSelectArt= document.querySelector(".formSelectArt")
 formSelectArt.addEventListener(('submit'), (event) => {
     event.preventDefault()
@@ -9,7 +15,22 @@ formSelectArt.addEventListener(('submit'), (event) => {
 
     //good id numbers: objects/438815,
     const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${artIDInput}`
+    const url3 = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat`
 
+    //fetch call for onload preselected image and data
+    const url2 = `https://collectionapi.metmuseum.org/public/collection/v1/objects/438815`
+    fetch(url2)
+        .then((response) => response.json())
+        .then((data2) => {
+            console.log(data2)
+        })
+    //fetch call for department ids and names - for pending usage - once I figure out how to tie into selected data or produce data
+    fetch(url3)
+        .then((response) => response.json())
+        .then((data3) => {
+            console.log(data3)
+        })
+    // main fetch call, which delivers images and data
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -19,36 +40,48 @@ formSelectArt.addEventListener(('submit'), (event) => {
             console.log(data.culture)
             console.log(data.medium)
             console.log(data.GalleryNumber)
+            console.log(data.creditLine)
             
-
-           // console.log(data.objectURL)
     
         const selectedArtUrl = data.objectURL    
         const displayArt = document.querySelector('.displayArt')
         const displayMore = document.querySelector('.displayMore')
-       
+
      
         let anchor = document.createElement('a')
         // const showArtInfoButton = document.querySelector('.showArtInfo')
 
         //check if an image (identified with id new-art) exists on the page. if so remove it, so art selections will not stack on page
+
         if(document.querySelector('#new-art')){document.querySelector('#new-art').remove()}
+        if(document.querySelector('.noPic_Avail')){document.querySelector('.noPic_Avail').remove()}
 
         //create image element - artImage and give it id = new-art
         let artImage = document.createElement('img')
         artImage.setAttribute('id','new-art')
+        artImage.classList.remove('hidden')
+ 
+        
+        //display additional art information until input is entered
+        displayMore.classList.remove('hidden')
 
         let infoLine1 = document.querySelector('#infoLine1')
         let infoLine2 = document.querySelector('#infoLine2')
         let infoLine3 = document.querySelector('#infoLine3')
         let infoLine4 = document.querySelector('#infoLine4')
         let infoLine5 = document.querySelector('#infoLine5')
+        let infoLine6 = document.querySelector('#infoLine6')
+        let infoLine7 = document.querySelector('#infoLine7')
+        let infoLine8 = document.querySelector('#infoLine8')
 
         infoLine1.textContent = "Title: " + data.title
         infoLine2.textContent = "Time Period: " +  data.objectDate
         infoLine3.textContent = "Culture: " + data.culture
         infoLine4.textContent = "Medium: " + data.medium
         infoLine5.textContent = "Gallery Number: " + data.GalleryNumber
+        infoLine6.textContent = "Country: " + data.country
+        infoLine7.textContent = "Credit: " + data.creditLine
+        infoLine8.textContent = "Repository: " + data.repository
    
        
         // displayArt.append(anchor)
@@ -62,11 +95,28 @@ formSelectArt.addEventListener(('submit'), (event) => {
         // artImage.setAttribute('height', 530)
         // artImage.setAttribute('width', 500)
         artImage.setAttribute('alt', "art piece")
-        artImage.style.border = ('2px solid brown')
+        artImage.style.border = ('4px solid brown')
         displayArt.append(artImage)
-        
-   
-
+    
+        //if there is data points are undefined (art id does not exist) display message
+        const msgNoPic = document.createElement('p')
+        msgNoPic.classList.add(('noPic_Avail'))
+      
+        if(data.primaryImage ==="" || data.title === undefined ){
+            artImage.classList.add('hidden')
+            displayMore.classList.add('hidden')
+            msgNoPic.textContent= "This Art ID number does not provide an image, or does not exist in this repository. Please try another number. Thank you."
+            displayArt.prepend(msgNoPic)
+            msgNoPic.style.height ="4vh"
+            msgNoPic.style.width="61vw"
+            msgNoPic.style.backgroundColor="white"
+            msgNoPic.style.border="7px solid red"
+            msgNoPic.style.padding="2vw"
+            msgNoPic.style.color="maroon"
+            msgNoPic.style.fontSize = "1.3em"
+            msgNoPic.style.fontWeight ="bold"
+            msgNoPic.style.textAlign="center"
+        }
 
         // let artLink = document.querySelector('.artLink')
         

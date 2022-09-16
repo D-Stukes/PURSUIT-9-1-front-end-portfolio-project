@@ -52,6 +52,11 @@ font-family: 'Roboto', sans-serif; */
     width:150vw;
 }
 
+label{
+    font-weight: bold;
+    font-size: 1.1em;
+    background-image: linear-gradient(to right top, #88e0f2, #89dafd, #96d3ff, #aacaff, #c2c0ff, #dab8f6, #efafe7, #ffa8d3, #ffa6b5, #ffad90, #ffbe6b, #f7d552);
+}
 #new-art{
    height:40vh ;
    width: 35vw;
@@ -61,7 +66,6 @@ font-family: 'Roboto', sans-serif; */
 .displayArt{
     height:40vh ;
     width: 35vw;
-    border: 2px solid rgba(124,0,0,.2);
     grid-row: 2/4;
     grid-column: 3/6 ;
 }
@@ -69,13 +73,15 @@ font-family: 'Roboto', sans-serif; */
  .displayMore{
     height:40vh ;
     width: 35vw;
-    border: 2px solid rgba(124,0,0,.2); 
-    background-color: rgba(222, 170, 107, .5);
+    border: 3px solid rgba(124,0,0,.4); 
+    background-color: rgba(222, 170, 107, .6);
     grid-row-start: 2 ;
     grid-row-end: 4;
     grid-column-start: 6;
     grid-column-end: 9;
     margin-top: 5vh;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 
@@ -177,3 +183,47 @@ ul li a:hover {
   .visible{
     display: block;
   }
+
+
+
+  /* ipad mini  */
+  @media (max-width: 768px){
+    /* when tested mq does not works for this one  - don't know why */
+    .displayArt {
+      margin-left: -8vw;
+      height: 35vh;
+    }
+
+    #new-art{
+        margin-left: -8vw;
+        height: 32vh;
+        width: 60vh;
+    }
+
+    .displayMore{
+        margin-left: -8vw;
+        height: 35vh;
+    }
+}
+
+
+/* Galaxy S20 */
+@media (max-width: 415px){
+
+    .displayArt {
+        width: 55vw;
+        margin-left: 10vw;
+        height: 45vh;
+        grid-column: 2/4;
+    }
+    #new-art{
+        width: 72vw;
+    }
+    .displayMore{
+     width: 73vw ;
+     margin-top: 17vh;
+     grid-row: 3;
+     grid-column: 2/4;
+     margin-left: 2vw;
+    }
+}
