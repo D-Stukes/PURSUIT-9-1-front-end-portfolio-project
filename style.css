@@ -14,13 +14,13 @@ font-family: 'Roboto', sans-serif; */
     padding: 10px 25px;
 } */
 
-.viewMoreDiv{
+/* .viewMoreDiv{
     top: 10vh;
     left:200px;
     width: 30vw;
     height:30wh;
     background-color:rgba(124,0,0,.2)
-}
+} */
 
 /* grid container for homepage */
 .container1{
@@ -165,10 +165,10 @@ ul li a:hover {
     background-image: url('./assets/images/architecture-2287327_1920.jpg');
     background-size: cover;
 }
-.aboutPage {
+/* .aboutPage {
     background-image: url('./assets/images/woman-colorFace.png');
     background-size: cover;
-}
+} */
 .contactPage {
     background-image: url('./assets/images/lagoon-2105231_1920.jpg');
     background-size: cover;
