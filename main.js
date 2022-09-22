@@ -1,36 +1,44 @@
 
+//Tasks - onload pic and overflow met description text
+//clickable pic with appearing info or click to view more button or click image
+//List of sample ID numbers  - extra: list of departments and matching numbers
+//Extra - improve Nav bar and hover effect, make form buttton color diagonal
 
 
+const displayFirstArt = document.querySelector('.displayFirstArt')
+const displayFirstInfo = document.querySelector('.displayFirstInfo')
 
+const firstFetch = () => {
+        let url2 = `https://collectionapi.metmuseum.org/public/collection/v1/objects/438815`
+        fetch(url2)
+        .then((response) => response.json())
+        .then((data) => {
+        console.log('data1 =',data)
 
+        let artImageFirst = document.createElement('img')
+        artImageFirst.setAttribute('id','first-art')
+        artImageFirst.setAttribute('src', data.primaryImage)
+        artImageFirst.setAttribute('alt', "art piece")
+        artImageFirst.style.border = ('4px solid brown')
+        
+        displayFirstArt.append(artImageFirst)
+       
 
-
+        })  // end of 2nd .then promise statement for 2nd Fetch 
+        .catch(error => console.log(error))
+        // end of fetch
+    }
+    firstFetch()  // call function to activate
+  
 
 const formSelectArt= document.querySelector(".formSelectArt")
 formSelectArt.addEventListener(('submit'), (event) => {
     event.preventDefault()
-    const artIDInput = event.target.search.value
-    console.log("Art ID Input", artIDInput)
 
-
+    let artIDInput = event.target.search.value
     //good id numbers: objects/438815,
     const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${artIDInput}`
-    const url3 = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat`
 
-    //fetch call for onload preselected image and data
-    const url2 = `https://collectionapi.metmuseum.org/public/collection/v1/objects/438815`
-    fetch(url2)
-        .then((response) => response.json())
-        .then((data2) => {
-            console.log(data2)
-        })
-    //fetch call for department ids and names - for pending usage - once I figure out how to tie into selected data or produce data
-    fetch(url3)
-        .then((response) => response.json())
-        .then((data3) => {
-            console.log(data3)
-        })
-    // main fetch call, which delivers images and data
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -42,14 +50,18 @@ formSelectArt.addEventListener(('submit'), (event) => {
             console.log(data.GalleryNumber)
             console.log(data.creditLine)
             
-    
-        const selectedArtUrl = data.objectURL    
-        const displayArt = document.querySelector('.displayArt')
-        const displayMore = document.querySelector('.displayMore')
+            const artIDInput = event.target.search.value
+            console.log("Art ID Input", artIDInput)
 
+            const selectedArtUrl = data.objectURL    
+            const displayArt = document.querySelector('.displayArt')
+            const displayMore = document.querySelector('.displayMore')
      
         let anchor = document.createElement('a')
         // const showArtInfoButton = document.querySelector('.showArtInfo')
+
+        displayFirstArt.classList.add('hidden')
+        displayFirstInfo.classList.add('hidden')
 
         //check if an image (identified with id new-art) exists on the page. if so remove it, so art selections will not stack on page
 
@@ -59,11 +71,15 @@ formSelectArt.addEventListener(('submit'), (event) => {
         //create image element - artImage and give it id = new-art
         let artImage = document.createElement('img')
         artImage.setAttribute('id','new-art')
-        artImage.classList.remove('hidden')
+        
+
+        displayArt.addEventListener(('click'), (event) => {
+            displayMore.classList.remove('hidden') 
+        })
  
         
         //display additional art information until input is entered
-        displayMore.classList.remove('hidden')
+        // displayMore.classList.remove('hidden')
 
         let infoLine1 = document.querySelector('#infoLine1')
         let infoLine2 = document.querySelector('#infoLine2')
@@ -191,4 +207,19 @@ formSelectArt.addEventListener(('submit'), (event) => {
 
 
 
+    // const url3 = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat`
 
+    //fetch call for onload preselected image and data
+    // const url2 = `https://collectionapi.metmuseum.org/public/collection/v1/objects/438815`
+    // fetch(url2)
+    //     .then((response) => response.json())
+    //     .then((data2) => {
+    //         console.log(data2)
+    //     })
+    // //fetch call for department ids and names - for pending usage - once I figure out how to tie into selected data or produce data
+    // fetch(url3)
+    //     .then((response) => response.json())
+    //     .then((data3) => {
+    //         console.log(data3)
+    //     })
+    // main fetch call, which delivers images and data

@@ -22,6 +22,7 @@ font-family: 'Roboto', sans-serif; */
     background-color:rgba(124,0,0,.2)
 } */
 
+
 /* grid container for homepage */
 .container1{
     /* height: 500vh;
@@ -52,27 +53,119 @@ font-family: 'Roboto', sans-serif; */
     width:150vw;
 }
 
+
 label{
     font-weight: bold;
+    height: 10vh;
+    width:10vw;
+    border: 2px solid #ffa400;
     font-size: 1.1em;
-    background-image: linear-gradient(to right top, #88e0f2, #89dafd, #96d3ff, #aacaff, #c2c0ff, #dab8f6, #efafe7, #ffa8d3, #ffa6b5, #ffad90, #ffbe6b, #f7d552);
+    background-image: linear-gradient(45deg, #96d3ff,#c2c0ff, #dab8f6, #ffa8d3, #ffa6b5, hsl(16, 100%, 78%), #ffbe6b, #f7d552);
+    background-image: -webkit-linear-gradientlinear-gradient(45deg, #88e0f2, #89dafd, #96d3ff, #aacaff, #c2c0ff, #dab8f6, #efafe7, #ffa8d3, #ffa6b5, #ffad90, #ffbe6b, #f7d552);
+    
 }
+/* initial image - displayed when page is loaded*/
+#first-art{
+    height:64vh ;
+    width: 35vw;
+    margin-top: 5vh;
+ }
+ 
+/* selected image - displays when submit button is clicked */
 #new-art{
-   height:40vh ;
+   height:46vh ;
    width: 35vw;
    margin-top: 5vh;
 }
 
-.displayArt{
-    height:40vh ;
+/* div for initial image */
+.displayFirstArt{
+    height: 64vh ;
     width: 35vw;
     grid-row: 2/4;
     grid-column: 3/6 ;
 }
 
- .displayMore{
-    height:40vh ;
+/* div for selected art */
+.displayArt{
+    height:46vh ;
     width: 35vw;
+    grid-row: 2/4;
+    grid-column: 3/6 ;
+}
+
+/* div for initial general info*/
+.displayFirstInfo {
+    grid-row: 3/4;
+    grid-column: 7/9 ;
+    margin-top: 5vh;
+    font-weight: bold;
+    font-size: 1.1em;
+    line-height: 1.5vw;
+    padding-left: 1.5vw;
+    height:75vh ;
+    width: 33vw;
+    border: 3px solid rgba(124,0,0,.4); 
+    background-color: rgba(222, 170, 107, .6);
+}
+
+/* div for initial general info - animation rules*/
+.displayFirstInfo{
+    overflow: hidden;
+    /* height: 100%; */
+   /* .firstInfo { */
+    /* overflow: hidden; */
+        /* height: 100%; */
+        line-height: 3.5vh;
+        height: 100%;
+        text-align: center;
+        
+        /* animation properties */
+        -moz-transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+        
+        -moz-animation: moving-info 60s linear infinite;
+        -webkit-animation: moving-info 60s linear infinite;
+        animation: moving-info 60s linear infinite;
+      }
+      
+      /* for Firefox */
+      @-moz-keyframes moving-info {
+        from { -moz-transform: translateY(100%); }
+        to { -moz-transform: translateY(-100%); }
+      }
+      
+      /* for Chrome */
+      @-webkit-keyframes moving-info {
+        from { -webkit-transform: translateY(100%); }
+        to { -webkit-transform: translateY(-100%); }
+      }
+      
+      @keyframes moving-info {
+        from {
+          -moz-transform: translateY(100%);
+          -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+        }
+        to {
+          -moz-transform: translateY(-100%);
+          -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+        }
+      
+}
+
+
+
+
+
+
+
+/* div for information about selected art */
+ .displayMore{
+    height:46vh ;
+    width: 33vw;
     border: 3px solid rgba(124,0,0,.4); 
     background-color: rgba(222, 170, 107, .6);
     grid-row-start: 2 ;
@@ -82,6 +175,8 @@ label{
     margin-top: 5vh;
     font-weight: bold;
     font-size: 1.1em;
+    line-height: 1.5vw;
+    padding-left: 1.5vw;
 }
 
 
@@ -97,29 +192,48 @@ label{
 }
 
 .homeUl{
-    height: 80%;
-    margin-top: -1;
-    margin-left: -3; 
+    height: 35%;
+    width: 17.2vw;
+    margin-top: 0vh;
+    margin-left: 0px; 
     background-color: rgba(255, 157, 80, .5);
-   ;
+    padding-top: 4vh;
 }
 
-ul li a:hover {
-    background-color: black;
-    border-radius: 20% / 50%;
-    color: goldenrod;
-    transform: scale(1.5);
-    transition: all .2s ease-in-out;
-  }
-
-.link1, .link2,.link3 {
-    list-style:none;
-    font-size: 20px;
+/* outline for nav links */
+a {
+    -webkit-text-stroke: .09vh crimson;
+    text-decoration: none;
+    padding: .7vw;
     font-weight: bolder;
-    color: rgb(42, 25, 4);
-    /* background-color:  cyan; */
+    color: rgb(111, 3, 135);
+    font-size: 4vh;
+    font-weight: bolder;
+
 }
 
+/* navigation links with hover */
+.link1 a:hover, .link2 a:hover,.link3 a:hover{
+    list-style:none;
+    font-weight: bolder;
+    color: gold;
+    font-size: 4.5vh;
+    border-radius: 20% / 50%;
+    transition: .8s ;
+    background-color: black;
+    transform: scale(.9);
+    text-decoration: none;
+    /* transform: scale(1.5);
+    transition: all .2s ease-in-out; */
+  }
+  
+.link1 , .link2,.link3 {
+    list-style:none;
+  
+
+   
+   
+}
 
 
 .link1{
@@ -189,12 +303,12 @@ ul li a:hover {
   /* ipad mini  */
   @media (max-width: 768px){
     /* when tested mq does not works for this one  - don't know why */
-    .displayArt {
+    .displayFirstArt, .displayArt {
       margin-left: -8vw;
       height: 35vh;
     }
 
-    #new-art{
+    #first-art, #new-art{
         margin-left: -8vw;
         height: 32vh;
         width: 60vh;
@@ -210,13 +324,13 @@ ul li a:hover {
 /* Galaxy S20 */
 @media (max-width: 415px){
 
-    .displayArt {
+    .displayFirstArt, .displayArt {
         width: 55vw;
         margin-left: 10vw;
         height: 45vh;
         grid-column: 2/4;
     }
-    #new-art{
+    #first-art, #new-art{
         width: 72vw;
     }
     .displayMore{

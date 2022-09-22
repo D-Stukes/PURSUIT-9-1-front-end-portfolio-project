@@ -8,6 +8,7 @@
     <script defer src="./main.js"></script>
     <title>Front End Portfolio Project</title>
 </head>
+
 <body class ='homePage'>
 
     <div class="container1">
@@ -22,21 +23,61 @@
         <main class ="homeMain">
             <header>
                 <h1 class="homepgTitle">Beautiful Ancient Art</h1>
+                <!-- <div  class='goldGifDiv'><iframe src="https://giphy.com/embed/XPXhiM9M1AQ0"  frameBorder="0" class="giphy-embed" ></iframe></div> -->
+                <!-- class="giphy-embed" allowFullScreen></iframe> -->
+                <!-- <p><a href="https://giphy.com/gifs/gold-golden-honeycomb-XPXhiM9M1AQ0">via GIPHY</a></p> -->
                 <!-- <h2>Diane Stukes</h2> -->
              </header>
+
+            
+
             <form class="formSelectArt">
                 <label  for="search">Enter an Art ID Number</label>
                 <input type="text" id="search" name="search" required/>
-                 <input type ="submit" value="View Art"/>     
+                 <input class="artInput" type ="submit" value="View Art"/>     
             </form> 
 
             <!-- <button class =' showArtInfo open_artModal_btn'> View Full Art Information </button>  -->
 
         </main>
-            <!-- display art, click image and show full info -->
-           
-                <div class="displayArt"></div>
+   
+            <!-- display initial art and general info  --->  
 
+                <div class="displayFirstArt"></div>
+                <div class="displayFirstInfo">
+                
+                    <!-- <p class="firstInfo'"> -->
+                         The Metropolitan Museum of Art was founded in 1870 with its mission to bring art and art education to the American people. 
+                         The museum's permanent collection consists of works of art from classical antiquity and ancient Egypt, paintings, and sculptures from nearly all the European masters, and an extensive collection of American and modern art. 
+                        
+                         The Met maintains extensive holdings of African, Asian, Oceanian, Byzantine, and Islamic art. 
+                        
+                        <!-- </p> -->
+                        </div>
+
+                         <!-- <br>
+                         The museum is home to encyclopedic collections of musical instruments, costumes, and accessories, as well as antique weapons and armor from around the world. 
+                         <br><br><br>
+
+
+                        The Metropolitan Museum of Art of New York City, colloquially "the Met", is the largest art museum in the Americas. <br><br><br>
+     
+                        Its permanent collection contains over two million works, divided among 17 curatorial departments. 
+                        <br><br><br>
+                    
+          
+                        (Excerpt from Wikipedia -(https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art))
+
+                     -->
+
+               
+
+        
+            <!-- display art, click image and show full info -->
+
+                <!-- <a href=".displayMore"> <div class="displayArt"></div></a> -->
+                <div class="displayArt"></div>
+             
                 <div class="displayMore hidden " > 
 
                     <p id="infoLine1">Title: </p>

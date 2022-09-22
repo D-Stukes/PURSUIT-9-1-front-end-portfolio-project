@@ -1,0 +1,7 @@
+//Example of a fetch call inside of an anonymous function
+// const funcName = (param) => {
+// let url = ('api url')
+// fetch statement
+// }
+//calls function
+//funcName()
