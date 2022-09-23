@@ -14,4 +14,6 @@
 
 - Visitors may click an image to view that image along with related information.
 
+deployed potfolio link: http://www.dianestukes.com/PURSUIT-9-1-front-end-portfolio-project/
+
 ## Data Snapshot
